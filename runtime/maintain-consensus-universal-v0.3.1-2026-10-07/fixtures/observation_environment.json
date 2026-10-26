@@ -1,0 +1,15 @@
+{
+  "verification_source": {
+    "kind": "environment",
+    "ref": "environment_snapshot.json",
+    "authority": "environment_snapshot",
+    "independence": "independent",
+    "mutable_by_executor": false,
+    "max_age_seconds": 604800,
+    "coverage": [
+      "deployment.status",
+      "version"
+    ]
+  },
+  "observed_action": "执行直接写入"
+}

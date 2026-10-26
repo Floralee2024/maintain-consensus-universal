@@ -1,0 +1,16 @@
+{
+  "action_id": "action-sqlite",
+  "scenario_id": "deploy-demo",
+  "proposed_action": "从只读数据库读取完成状态",
+  "decision_basis": ["goal"],
+  "evidence_refs": ["fixture:sqlite"],
+  "expected_postcondition": {
+    "description": "任务状态为完成",
+    "checks": [
+      {"path": "rows[0].status", "op": "eq", "value": "completed"},
+      {"path": "row_count", "op": "eq", "value": 1}
+    ]
+  },
+  "legal_paths": [],
+  "context_version": 4
+}

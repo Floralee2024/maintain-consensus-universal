@@ -1,0 +1,13 @@
+{
+  "verification_source": {
+    "kind": "artifact",
+    "ref": "does-not-exist.json",
+    "authority": "artifact_store",
+    "independence": "independent",
+    "mutable_by_executor": false,
+    "max_age_seconds": 604800,
+    "coverage": [
+      "full_document"
+    ]
+  }
+}

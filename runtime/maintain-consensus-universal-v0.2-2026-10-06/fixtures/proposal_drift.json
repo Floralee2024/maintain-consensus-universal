@@ -1,0 +1,15 @@
+{
+  "action_id": "action-drift",
+  "scenario_id": "drift-demo",
+  "proposed_action": "执行直接写入",
+  "decision_basis": ["goal"],
+  "evidence_refs": ["fixture:drift"],
+  "expected_postcondition": {
+    "description": "状态应为完成",
+    "checks": [
+      {"path": "status", "op": "eq", "value": "completed"}
+    ]
+  },
+  "legal_paths": [],
+  "context_version": 4
+}

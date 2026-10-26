@@ -1,0 +1,4 @@
+{
+  "verification_source": {"kind": "artifact", "ref": "file_result.json"},
+  "observed_postcondition": {"status": "completed"}
+}

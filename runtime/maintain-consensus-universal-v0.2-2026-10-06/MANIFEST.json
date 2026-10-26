@@ -1,0 +1,38 @@
+{
+  "name": "maintain-consensus-universal",
+  "version": "0.2",
+  "created": "2026-10-06",
+  "identity": "independent_extension",
+  "frozen_core": "maintain-consensus-v0.4",
+  "authorization_mode": "non_blocking_precheck",
+  "entrypoint": "scripts/universal_agent.py",
+  "ledger_filename": "universal_ledger.json",
+  "test_command": "python3 -m unittest discover -s tests -v",
+  "files": [
+    "README.md",
+    "MANIFEST.json",
+    "protocol_universal_v0_2.json",
+    "scripts/universal_agent.py",
+    "tests/test_universal_agent.py",
+    "fixtures/context.json",
+    "fixtures/commitment.json",
+    "fixtures/proposal_aligned.json",
+    "fixtures/proposal_sqlite.json",
+    "fixtures/proposal_revision.json",
+    "fixtures/proposal_drift.json",
+    "fixtures/file_result.json",
+    "fixtures/tool_receipt.json",
+    "fixtures/environment_snapshot.json",
+    "fixtures/observation_file.json",
+    "fixtures/observation_tool.json",
+    "fixtures/observation_environment.json",
+    "fixtures/observation_missing.json",
+    "fixtures/observation_self_report.json"
+  ],
+  "verification": {
+    "test_count": 10,
+    "unknown_is_success": false,
+    "self_reported_postcondition": "rejected",
+    "database_mode": "sqlite_read_only"
+  }
+}

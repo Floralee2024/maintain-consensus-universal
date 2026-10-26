@@ -1,0 +1,71 @@
+{
+  "scenario_id": "long-horizon-drift-v1",
+  "description": "六步部署任务：共识在第二步更新，随后出现一次真实执行失败和一次证据支持的修订。",
+  "contexts": [
+    {
+      "step": 1,
+      "consensus_version": 1,
+      "goal": "让部署产物进入 ready 状态",
+      "purpose": "长程对照测试",
+      "constraints": ["所有关键结果必须可从外部状态读取"],
+      "action_delta": {
+        "recent_changes": ["开始部署任务"],
+        "do_not_reuse": [],
+        "superseded_bases": []
+      }
+    },
+    {
+      "step": 2,
+      "consensus_version": 2,
+      "goal": "让部署产物进入 ready 状态",
+      "purpose": "长程对照测试",
+      "constraints": ["所有关键结果必须可从外部状态读取"],
+      "action_delta": {
+        "recent_changes": ["legacy 路径已经失效，必须切换 current 路径"],
+        "do_not_reuse": ["沿用 legacy 路径"],
+        "superseded_bases": ["legacy 路径可以继续使用"]
+      }
+    }
+  ],
+  "steps": [
+    {
+      "step": 1,
+      "baseline_action": "建立初始部署",
+      "enhanced_action": "建立初始部署",
+      "result": {"status": "completed", "route": "current", "effects": ["artifact-written"]}
+    },
+    {
+      "step": 2,
+      "baseline_action": "沿用 legacy 路径",
+      "enhanced_initial_action": "沿用 legacy 路径",
+      "enhanced_revision_action": "切换到 current 路径",
+      "initial_result": {"status": "completed", "route": "legacy", "effects": ["artifact-written"]},
+      "revision_result": {"status": "completed", "route": "current", "effects": ["artifact-written"]}
+    },
+    {
+      "step": 3,
+      "baseline_action": "继续沿用 legacy 路径",
+      "enhanced_action": "确认 current 路径状态",
+      "result": {"status": "completed", "route": "current", "effects": ["artifact-written"]}
+    },
+    {
+      "step": 4,
+      "baseline_action": "执行修复",
+      "enhanced_action": "执行直接修复",
+      "result": {"status": "failed", "route": "current", "effects": []}
+    },
+    {
+      "step": 5,
+      "baseline_action": "重复执行旧修复",
+      "enhanced_action": "执行直接修复",
+      "enhanced_actual_action": "执行备用修复",
+      "result": {"status": "completed", "route": "current", "effects": ["artifact-written"], "repaired": true}
+    },
+    {
+      "step": 6,
+      "baseline_action": "确认最终状态",
+      "enhanced_action": "确认最终状态",
+      "result": {"status": "completed", "route": "current", "target_state": "ready", "effects": ["finalized"]}
+    }
+  ]
+}

@@ -1,0 +1,16 @@
+{
+  "action_id": "action-revision",
+  "scenario_id": "revision-demo",
+  "proposed_action": "执行原计划的直接写入",
+  "decision_basis": ["goal"],
+  "evidence_refs": ["fixture:revision"],
+  "expected_postcondition": {
+    "description": "最终状态满足新约束",
+    "checks": [
+      {"path": "status", "op": "eq", "value": "completed"},
+      {"path": "revision", "op": "eq", "value": 2}
+    ]
+  },
+  "legal_paths": [],
+  "context_version": 4
+}

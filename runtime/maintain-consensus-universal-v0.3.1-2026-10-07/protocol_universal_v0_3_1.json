@@ -1,0 +1,127 @@
+{
+  "name": "maintain-consensus-universal-action-binding",
+  "version": "0.3.1",
+  "status": "independent_extension",
+  "frozen_core": "maintain-consensus-v0.4",
+  "default_authorization_mode": "none",
+  "ledger": {
+    "filename": "universal_ledger.json",
+    "schema_version": 2,
+    "required_sections": [
+      "schema_version",
+      "session_id",
+      "revision",
+      "context",
+      "commitments",
+      "actions",
+      "action_delta",
+      "events",
+      "integrity_sha256"
+    ]
+  },
+  "action_lifecycle": [
+    "proposed",
+    "prechecked",
+    "externally_executed",
+    "verified"
+  ],
+  "precheck_statuses": [
+    "consistent",
+    "needs_restatement",
+    "insufficient_basis"
+  ],
+  "divergence_types": [
+    "aligned",
+    "justified_revision",
+    "drift",
+    "unknown"
+  ],
+  "verification_rule": {
+    "postconditions_read_from_external_source": true,
+    "observed_postcondition_is_not_accepted": true,
+    "unknown_counts_as_success": false,
+    "weak_postcondition_quality_counts_as_unknown": true,
+    "source_quality_required_for_aligned": true,
+    "comparison_is_system_computed": true,
+    "comparison_does_not_replace_divergence_type": true,
+    "external_only_rejects_declared_action_fallback": true,
+    "trigger_rules_are_record_only_by_default": true
+  },
+  "source_kinds": [
+    "file",
+    "artifact",
+    "database",
+    "tool",
+    "environment"
+  ],
+  "source_quality_fields": [
+    "authority",
+    "independence",
+    "mutable_by_executor",
+    "max_age_seconds",
+    "coverage"
+  ],
+  "source_independence_values": [
+    "independent",
+    "same_executor",
+    "self_reported",
+    "unknown"
+  ],
+  "postcondition_quality_fields": [
+    "min_checks",
+    "required_paths",
+    "require_terminal",
+    "require_effect",
+    "exception_reason"
+  ],
+  "postcondition_operators": [
+    "eq",
+    "neq",
+    "contains",
+    "not_contains",
+    "exists",
+    "in",
+    "gte",
+    "lte"
+  ],
+  "action_binding_fields": [
+    "proposed_action",
+    "serves_purpose",
+    "action_delta_response",
+    "actual_action_source",
+    "comparison"
+  ],
+  "comparison_types": [
+    "aligned",
+    "partial",
+    "drift",
+    "justified_revision",
+    "unknown"
+  ],
+  "actual_action_source_policies": [
+    "external_only",
+    "external_preferred",
+    "declared_allowed"
+  ],
+  "trigger_rules": {
+    "optional": true,
+    "default_mode": "record_only",
+    "node_types": [
+      "case_selection",
+      "metric_change",
+      "plan_change",
+      "resource_scale",
+      "completion_claim"
+    ],
+    "fields": [
+      "node_type",
+      "precheck",
+      "postcheck",
+      "mode"
+    ],
+    "modes": [
+      "record_only",
+      "external_required"
+    ]
+  }
+}

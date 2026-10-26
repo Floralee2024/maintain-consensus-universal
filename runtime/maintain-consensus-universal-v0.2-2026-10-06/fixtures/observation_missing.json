@@ -1,0 +1,3 @@
+{
+  "verification_source": {"kind": "artifact", "ref": "does-not-exist.json"}
+}

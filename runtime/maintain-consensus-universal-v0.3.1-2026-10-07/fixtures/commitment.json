@@ -1,0 +1,15 @@
+{
+  "commitment_id": "commitment-reality-first",
+  "statement": "行动结果必须以可读取的外部状态为依据",
+  "source": {
+    "kind": "artifact",
+    "ref": "protocol_universal_v0_2.json"
+  },
+  "scope": {
+    "targets": ["action verification", "postcondition"],
+    "forbidden": ["model self-report"]
+  },
+  "prohibits": ["只凭模型自报完成"],
+  "requires": ["external source", "postcondition check"],
+  "status": "active"
+}

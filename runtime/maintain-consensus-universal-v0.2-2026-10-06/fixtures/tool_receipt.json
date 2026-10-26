@@ -1,0 +1,9 @@
+{
+  "status": "completed",
+  "path_id": "direct",
+  "action": {
+    "description": "执行直接写入",
+    "target": "demo-artifact"
+  },
+  "effects": ["artifact-written"]
+}

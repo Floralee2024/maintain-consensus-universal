@@ -1,0 +1,4 @@
+{
+  "verification_source": {"kind": "environment", "ref": "environment_snapshot.json"},
+  "observed_action": "执行直接写入"
+}

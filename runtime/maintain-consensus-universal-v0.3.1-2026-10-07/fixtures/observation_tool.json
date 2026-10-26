@@ -1,0 +1,14 @@
+{
+  "verification_source": {
+    "kind": "tool",
+    "ref": "tool_receipt.json",
+    "authority": "tool_runtime",
+    "independence": "independent",
+    "mutable_by_executor": false,
+    "max_age_seconds": 604800,
+    "coverage": [
+      "status",
+      "effects"
+    ]
+  }
+}

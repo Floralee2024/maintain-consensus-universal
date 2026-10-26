@@ -1,0 +1,23 @@
+{
+  "action_id": "action-aligned",
+  "scenario_id": "deploy-demo",
+  "proposed_action": {
+    "description": "读取外部产物并核对预期后置状态",
+    "target": "demo-artifact"
+  },
+  "decision_basis": ["goal", "commitment-reality-first"],
+  "evidence_refs": ["design:universal-v0.2"],
+  "expected_postcondition": {
+    "description": "外部产物显示行动已经完成",
+    "checks": [
+      {"path": "status", "op": "eq", "value": "completed"},
+      {"path": "result.version", "op": "gte", "value": 2},
+      {"path": "effects", "op": "contains", "value": "artifact-written"}
+    ]
+  },
+  "legal_paths": [
+    {"path_id": "direct", "description": "直接写入产物"},
+    {"path_id": "alternate", "description": "通过缓存后再写入产物"}
+  ],
+  "context_version": 4
+}

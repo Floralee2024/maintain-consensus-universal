@@ -1,0 +1,10 @@
+{
+  "status": "completed",
+  "path_id": "alternate",
+  "action": {
+    "description": "读取外部产物并核对预期后置状态",
+    "target": "demo-artifact"
+  },
+  "result": {"version": 2},
+  "effects": ["artifact-written"]
+}
